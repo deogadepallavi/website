@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/website/static/css/main.e66b3fc2.css",
+    "main.js": "/website/static/js/main.597bf083.js",
+    "static/js/787.2fe99908.chunk.js": "/website/static/js/787.2fe99908.chunk.js",
+    "static/media/seattleImage2.jpg": "/website/static/media/seattleImage2.5c37755ba025744c4274.jpg",
+    "static/media/seattleBackgroundImage.jpg": "/website/static/media/seattleBackgroundImage.030c8f275ebb688595df.jpg",
+    "index.html": "/website/index.html",
+    "main.e66b3fc2.css.map": "/website/static/css/main.e66b3fc2.css.map",
+    "main.597bf083.js.map": "/website/static/js/main.597bf083.js.map",
+    "787.2fe99908.chunk.js.map": "/website/static/js/787.2fe99908.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e66b3fc2.css",
+    "static/js/main.597bf083.js"
+  ]
+}
