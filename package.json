@@ -1,4 +1,5 @@
 {
+  "homepage": "https://deogadepallavi.github.io/website",
   "name": "final-project-application",
   "version": "0.1.0",
   "private": true,
@@ -14,6 +15,8 @@
   },
   "scripts": {
     "start": "PORT=4000 node server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
