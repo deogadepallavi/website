@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Tabs from "./tabs";
+import Tabs from "./Tabs";
 import Calendar from "./Calendar";
 import { tabsConfig } from "./tabsConfig";
 import LoginForm from './LoginForm';
