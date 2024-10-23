@@ -10,7 +10,7 @@ import { fetchSession, fetchLogin, fetchLogout } from './services';
 
 
 function App() {
-  const [username, setUsername] = useState('');
+  const [setUsername] = useState('');
   const [loginStatus, setLoginStatus] = useState(LOGIN_STATUS.PENDING);
  
   
