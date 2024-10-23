@@ -60,7 +60,7 @@ function App() {
         {loginStatus === LOGIN_STATUS.IS_LOGGED_IN && (
           <div>
             <Tabs tabsConfig={tabsConfig} />
-            {/* <p className='para-style'>Hello, {username} </p> */}
+            <p className='para-style'>Hello, {username} </p> {/* Now using username */}
             <Calendar />
             <Controls onLogout={onLogout} />
           </div>
