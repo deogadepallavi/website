@@ -55,8 +55,7 @@ function App() {
     () => {
       checkForSession();
     },
-    []// Disable eslint warning if intentional
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [checkForSession]
   );
 
   return (
