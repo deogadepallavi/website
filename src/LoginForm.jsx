@@ -2,15 +2,10 @@ import { useState } from 'react';
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   function onChange(e) {
     setUsername(e.target.value);
-  }
-
-  function onChangePassword(e) {
-    setPassword(e.target.value);
   }
 
   function onSubmit(e) {
@@ -43,15 +38,6 @@ function LoginForm({ onLogin }) {
             <input value={username} onChange={onChange}/>
           </label>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-          <label>
-            <span> Password : </span>
-          <input
-            value={password}
-            onChange={onChangePassword}
-            required
-          />
-          </label>
           <div>
           <button className="button1-style" type="submit">Login</button>
           </div>

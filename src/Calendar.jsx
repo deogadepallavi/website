@@ -34,6 +34,7 @@ const Calendar = () => {
     }
   };
 
+
   const renderDays = () => {
     const daysInMonth = new Date(
       selectedDate.getFullYear(),
@@ -101,7 +102,7 @@ const Calendar = () => {
       <div className="event-list">
       To add events in your calendar please select a date.  
       {message && <div className="message">{message}</div>}
-      Events:
+      <h3>Events:</h3>
         <div className="event-input">
           <input
             type="text"
@@ -111,13 +112,13 @@ const Calendar = () => {
           />
           <button className="add-event" onClick={handleAddEvent}>Add Event</button>
         </div>
-        {/* <ul> */}
+        <ul>
           {events.map((event, index) => (
             <li key={index}>
               {event.date.toLocaleDateString()} - {event.event}
             </li>
           ))}
-        {/* </ul> */}
+        </ul>
       </div>
       {/* {message && <div className="message">{message}</div>} */}
     </div>
