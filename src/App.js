@@ -56,11 +56,12 @@ function App() {
   return (
     <div className='content'>
       <main className='page-style'>
+      <p className='para-style'>Hello, {username} </p>
         {loginStatus === LOGIN_STATUS.NOT_LOGGED_IN && <LoginForm onLogin={onLogin} />}
         {loginStatus === LOGIN_STATUS.IS_LOGGED_IN && (
           <div>
             <Tabs tabsConfig={tabsConfig} />
-            <p className='para-style'>Hello, {username} </p> {/* Now using username */}
+            {/* <p className='para-style'>Hello, {username} </p> Now using username */}
             <Calendar />
             <Controls onLogout={onLogout} />
           </div>
