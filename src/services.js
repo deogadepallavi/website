@@ -14,6 +14,25 @@ export function fetchSession() {
   });
 }
 
+export function fetchSignUp(username, password, email) {
+  return fetch('/api/signup', {
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+    body: JSON.stringify({ username, password, email }),
+  })
+  .catch(() => Promise.reject({ error: 'networkError' }))
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    return response.json()
+      .catch(error => Promise.reject({ error }))
+      .then(err => Promise.reject(err));
+  });
+}
+
 export function fetchLogout() {
   return fetch('/api/session', {
     method: 'DELETE',
@@ -318,6 +337,9 @@ export function fetchEmail() {
     .then( err => Promise.reject(err) );
   });
 }
+
+
+
 
 export function fetchAddTodo(task) {
   return fetch('/api/todos', {

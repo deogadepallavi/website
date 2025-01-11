@@ -4,31 +4,48 @@ import Calendar from "./Calendar";
 import { tabsConfig } from "./tabsConfig";
 import LoginForm from './LoginForm';
 import Controls from './Controls';
+import SignUpForm from './SignUpForm';  
 import './App.css';
 import { LOGIN_STATUS, CLIENT, SERVER } from './constants';
-import { fetchSession, fetchLogin, fetchLogout } from './services';
+import { fetchSession, fetchLogin, fetchLogout, fetchSignUp } from './services';
 
 function App() {
-  const [username, setUsername] = useState('');  // Correct destructuring
+  const [username, setUsername] = useState('');
   const [loginStatus, setLoginStatus] = useState(LOGIN_STATUS.PENDING);
+  const [isSignUp, setIsSignUp] = useState(false);  
 
-  // Function to handle login
+  // Handle login logic
   function onLogin(username) {
     fetchLogin(username)
       .then(() => {
         setUsername(username);
         setLoginStatus(LOGIN_STATUS.IS_LOGGED_IN);
+      })
+      .catch((err) => {
+        console.error("Login failed", err);
       });
   }
 
-  // Function to handle logout
+  // Handle sign up logic
+  function onSignUp(username) {
+    fetchSignUp(username)
+      .then(() => {
+        setUsername(username);
+        setLoginStatus(LOGIN_STATUS.IS_LOGGED_IN);
+      })
+      .catch((err) => {
+        console.error("Sign-up failed", err);
+      });
+  }
+
+  // Handle logout
   function onLogout() {
     setUsername('');
     setLoginStatus(LOGIN_STATUS.NOT_LOGGED_IN);
     fetchLogout();
   }
 
-  // Function to check for an existing session
+  // Check for existing session on page load
   function checkForSession() {
     fetchSession()
       .then(session => {
@@ -48,20 +65,31 @@ function App() {
       });
   }
 
-  // useEffect to check session on component mount
   useEffect(() => {
-    checkForSession();  // Call the function
-  }, []);  // Empty dependency array to run only on mount
+    console.log('my app ');
+    checkForSession();
+  }, []);
+
+  // Toggle between Login and SignUp forms
+  function toggleForm() {
+    setIsSignUp(!isSignUp);
+  }
 
   return (
     <div className='content'>
       <main className='page-style'>
-      <p className='para-style'>Hello, {username} </p>
-        {loginStatus === LOGIN_STATUS.NOT_LOGGED_IN && <LoginForm onLogin={onLogin} />}
+        {/* Conditionally render the forms based on login status and toggle */}
+        {loginStatus === LOGIN_STATUS.NOT_LOGGED_IN && (
+          isSignUp ? (
+            <SignUpForm onSignUp={onSignUp} toggleForm={toggleForm} />
+          ) : (
+            <LoginForm onLogin={onLogin} toggleForm={toggleForm} />
+          )
+        )}
+
         {loginStatus === LOGIN_STATUS.IS_LOGGED_IN && (
           <div>
             <Tabs tabsConfig={tabsConfig} />
-            {/* <p className='para-style'>Hello, {username} </p> Now using username */}
             <Calendar />
             <Controls onLogout={onLogout} />
           </div>
