@@ -10,7 +10,6 @@ import { LOGIN_STATUS, CLIENT, SERVER } from './constants';
 import { fetchSession, fetchLogin, fetchLogout, fetchSignUp } from './services';
 
 function App() {
-  const [username, setUsername] = useState('');
   const [loginStatus, setLoginStatus] = useState(LOGIN_STATUS.PENDING);
   const [isSignUp, setIsSignUp] = useState(false);  
 
@@ -18,7 +17,6 @@ function App() {
   function onLogin(username) {
     fetchLogin(username)
       .then(() => {
-        setUsername(username);
         setLoginStatus(LOGIN_STATUS.IS_LOGGED_IN);
       })
       .catch((err) => {
@@ -30,7 +28,6 @@ function App() {
   function onSignUp(username) {
     fetchSignUp(username)
       .then(() => {
-        setUsername(username);
         setLoginStatus(LOGIN_STATUS.IS_LOGGED_IN);
       })
       .catch((err) => {
@@ -40,7 +37,6 @@ function App() {
 
   // Handle logout
   function onLogout() {
-    setUsername('');
     setLoginStatus(LOGIN_STATUS.NOT_LOGGED_IN);
     fetchLogout();
   }
@@ -49,7 +45,6 @@ function App() {
   function checkForSession() {
     fetchSession()
       .then(session => {
-        setUsername(session.username);
         setLoginStatus(LOGIN_STATUS.IS_LOGGED_IN);
       })
       .catch(err => {
@@ -78,7 +73,6 @@ function App() {
   return (
     <div className='content'>
       <main className='page-style'>
-        {/* Conditionally render the forms based on login status and toggle */}
         {loginStatus === LOGIN_STATUS.NOT_LOGGED_IN && (
           isSignUp ? (
             <SignUpForm onSignUp={onSignUp} toggleForm={toggleForm} />
