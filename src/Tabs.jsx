@@ -201,15 +201,15 @@ const Tabs = ({ tabsConfig, defaultIndex }) => {
                 <li className="tab-list-style"
                   key={index}
                   onClick={() => {
-                    if (tab.label == "Things To do")
+                    if (tab.label === "Things To do")
                       sightseeingClick(index);
-                    else if (tab.label == "Food & Drink")
+                    else if (tab.label === "Food & Drink")
                       restaurantsClicked(index);
-                    else if (tab.label == "Lodging")
+                    else if (tab.label === "Lodging")
                       hotelClicked(index)
-                    else if (tab.label == "Blog")
+                    else if (tab.label === "Blog")
                       blogClicked(index)
-                    else if (tab.label == "Contact Us")
+                    else if (tab.label === "Contact Us")
                       phoneClicked(index)
                   }}
                 >
@@ -219,11 +219,11 @@ const Tabs = ({ tabsConfig, defaultIndex }) => {
                   <li className="tab-list-style"
                     key={index}
                     onClick={() => {
-                      if (tab.label == "Things To do")
+                      if (tab.label === "Things To do")
                       eventsClick(index);
-                      else if (tab.label == "Food & Drink")
+                      else if (tab.label === "Food & Drink")
                       coffeeClicked(index)
-                      else if (tab.label == "Contact Us")
+                      else if (tab.label === "Contact Us")
                       emailClicked(index)
                     }}
                   >
@@ -234,9 +234,9 @@ const Tabs = ({ tabsConfig, defaultIndex }) => {
                 <li className="tab-list-style"
                     key={index}
                     onClick={() => {
-                      if (tab.label == "Things To do")
+                      if (tab.label === "Things To do")
                       artsAndCultureClick(index);
-                      else if (tab.label == "Food & Drink")
+                      else if (tab.label === "Food & Drink")
                       wineClicked(index)
                     }}
                 >
@@ -247,9 +247,9 @@ const Tabs = ({ tabsConfig, defaultIndex }) => {
                 <li className="tab-list-style"
                     key={index}
                     onClick={() => {
-                      if (tab.label == "Things To do")
+                      if (tab.label === "Things To do")
                       culturalHeritageClick(index);
-                      else if (tab.label == "Food & Drink")
+                      else if (tab.label === "Food & Drink")
                       beerClicked(index)
                     }}
                 >
@@ -260,9 +260,9 @@ const Tabs = ({ tabsConfig, defaultIndex }) => {
                 <li className="tab-list-style"
                     key={index}
                     onClick={() => {
-                      if (tab.label == "Things To do")
+                      if (tab.label === "Things To do")
                       familyFunClick(index);
-                      else if (tab.label == "Food & Drink")
+                      else if (tab.label === "Food & Drink")
                       spiritsClicked(index)
                     }}
                 >
@@ -273,9 +273,9 @@ const Tabs = ({ tabsConfig, defaultIndex }) => {
                 <li className="tab-list-style"
                     key={index}
                     onClick={() => {
-                      if (tab.label == "Things To do")
+                      if (tab.label === "Things To do")
                       shoppingClick(index);
-                      else if (tab.label == "Food & Drink")
+                      else if (tab.label === "Food & Drink")
                       foodClicked(index)
                     }}
                 >
@@ -308,13 +308,13 @@ const Tabs = ({ tabsConfig, defaultIndex }) => {
         </ul>
         {selectedItem !== null && (
           <>
-            {selectedIndex == 0 && <RenderData message = {sessionData} />}
-            {selectedIndex == 1 && <RenderData message = {sessionData} />}
-            {selectedIndex == 2 && <RenderData message = {sessionData} />}
-            {selectedIndex == 3 && <RenderData message = {sessionData} />}
-            {selectedIndex == 4 && <RenderData message = {sessionData} />}
-            {selectedIndex == 5 && <RenderData message = {sessionData} />}
-            {selectedIndex == 6 && <RenderData message = {sessionData} />}
+            {selectedIndex === 0 && <RenderData message = {sessionData} />}
+            {selectedIndex === 1 && <RenderData message = {sessionData} />}
+            {selectedIndex === 2 && <RenderData message = {sessionData} />}
+            {selectedIndex === 3 && <RenderData message = {sessionData} />}
+            {selectedIndex === 4 && <RenderData message = {sessionData} />}
+            {selectedIndex === 5 && <RenderData message = {sessionData} />}
+            {selectedIndex === 6 && <RenderData message = {sessionData} />}
 
           </>
         )}
